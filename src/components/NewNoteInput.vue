@@ -20,18 +20,21 @@
       />
     
     <div v-show="focused" class="flex justify-between text-neutral-400 font-semibold rounded-b-lg">
-      <button class="px-4 py-2" @click="isList = !isList; createA = isList ? 'lista...' : 'nota...'">
-        <img 
-          src="../assets/select.png" 
-          alt="Select list Button" 
-          class="cursor-pointer hover:scale-110 opacity-50 hover:opacity-80 cursor-pointer" 
-          width="20" height="20"
-          />
-      </button>
+      <div class="flex justify-center items-center">
+        <button class="pl-4 pr-2 py-2" >
+          <img
+            @click="isList = !isList; createA = isList ? 'lista...' : 'nota...'"
+            src="../assets/select.png"
+            alt="Select list Button"
+            class="cursor-pointer hover:scale-110 opacity-50 hover:opacity-80 cursor-pointer"
+            width="20" height="20"
+            />
+        </button>
+        <a>List</a>
+      </div>
       <button @click="focused = false" class="cursor-pointer px-4 py-2">Fechar</button>
     </div>
   </div>
-  <pre name="test">{{ isList }}</pre>
 </template>
 
 <script setup>
