@@ -5,12 +5,10 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('../views/HomeView.vue')
-    },
-    {
+      name: 'main page',
+      component: () => import('../views/MainView.vue')
     }
-  ],
+  ]
 })
 
 export default router

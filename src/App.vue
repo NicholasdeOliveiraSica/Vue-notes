@@ -1,8 +1,8 @@
 
 <template>
-  <HomeView />
+  <MainView />
 </template>
 
 <script setup>
-import HomeView from "@/views/HomeView.vue";
+import MainView from "@/views/MainView.vue";
 </script>
