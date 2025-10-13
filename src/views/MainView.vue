@@ -9,6 +9,8 @@
       v-model:focused="focused"
       />
 
+      <NotesContainer />
+
       <pre>{{ focused }}</pre>
       <pre>{{ store.notes }}</pre>
   </div>
@@ -17,6 +19,7 @@
 
 
 <script setup>
+import NotesContainer from "@/components/NotesContainer.vue"
 import NewNoteInput from "@/components/NewNoteInput.vue";
 import { useFormStore } from "@/stores/useFormStore";
 import { onMounted, ref } from "vue";

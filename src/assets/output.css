@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-neutral-400: oklch(70.8% 0 0);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -171,14 +172,14 @@
   .fixed {
     position: fixed;
   }
-  .static {
-    position: static;
-  }
   .m-5 {
     margin: calc(var(--spacing) * 5);
   }
   .flex {
     display: flex;
+  }
+  .table {
+    display: table;
   }
   .h-screen {
     height: 100vh;
@@ -189,8 +190,17 @@
   .max-w-150 {
     max-width: calc(var(--spacing) * 150);
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
+  }
+  .appearance-none {
+    appearance: none;
   }
   .flex-col {
     flex-direction: column;
@@ -218,8 +228,17 @@
   .border-\[\#ddd\] {
     border-color: #ddd;
   }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
+  }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .bg-\[url\(https\:\/\/img\.icons8\.com\/ios-filled\/50\/pin--v1\.png\)\] {
+    background-image: url(https://img.icons8.com/ios-filled/50/pin--v1.png);
+  }
+  .bg-\[url\(https\:\/\/img\.icons8\.com\/ios\/50\/pin--v1\.png\)\] {
+    background-image: url(https://img.icons8.com/ios/50/pin--v1.png);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
@@ -238,9 +257,16 @@
   .text-neutral-400 {
     color: var(--color-neutral-400);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -338,6 +364,11 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -410,6 +441,7 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
