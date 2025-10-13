@@ -15,7 +15,7 @@
     </div>
 
     <input
-      type="text" 
+      type="text"
       placeholder="Criar uma nota..."
       v-model="store.newDesc"
       class="px-4 py-2 w-full focus-visible:outline-none placeholder:font-semibold"
@@ -36,8 +36,8 @@ import { useFormStore } from '../stores/useFormStore';
 
 const store = useFormStore()
 const props = defineProps({
-  focused: { 
-    type: Boolean, 
+  focused: {
+    type: Boolean,
     default: false
   }
 });
