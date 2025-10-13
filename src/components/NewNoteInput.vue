@@ -1,7 +1,7 @@
 <template>
   <div :class="['m-5 w-full max-w-150 bg-white rounded-lg shadow-md border border-[#ddd]' , $attrs.class]">
 
-    <div v-show="focused" class="flex items-center justify-between px-4 py-2">
+    <div v-show="props.focused" class="flex items-center justify-between px-4 py-2">
       <input
       type="text"
       placeholder="Titulo"
@@ -20,19 +20,7 @@
       @click="emit('update:focused', true)"
       />
 
-    <div v-show="focused" class="flex justify-between text-neutral-400 font-semibold rounded-b-lg">
-      <div class="flex justify-center items-center">
-        <button class="pl-4 pr-2 py-2" >
-          <img
-            @click="isList = !isList; createA = isList ? 'lista...' : 'nota...'"
-            src="../assets/select.png"
-            alt="Select list Button"
-            class="cursor-pointer hover:scale-110 opacity-50 hover:opacity-80 cursor-pointer"
-            width="20" height="20"
-            />
-        </button>
-        <a>List</a>
-      </div>
+    <div v-show="props.focused" class="flex justify-end text-neutral-400 font-semibold rounded-b-lg">
       <button @click="emit('update:focused', false)" class="cursor-pointer px-4 py-2">Fechar</button>
     </div>
 
@@ -54,7 +42,6 @@ const emit = defineEmits([
 ])
 
 const fixedSelect = ref(false);
-const isList = ref(false);
 const createA = ref('nota...');
 
 </script>
