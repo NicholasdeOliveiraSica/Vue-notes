@@ -1,6 +1,6 @@
 
 import { defineStore } from 'pinia';
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 
 // Usar Pinia é muito simples
@@ -15,8 +15,11 @@ export const useFormStore = defineStore('form', () => {
 
     const notes = ref([])
 
+    onMounted(() => {
+      console.log(notes.value)
+    })
+
     const saveNotes = localStorage.getItem('allNotes')
-    console.log(saveNotes)
     if (saveNotes) {
       notes.value = JSON.parse(saveNotes)
     }
@@ -38,6 +41,10 @@ export const useFormStore = defineStore('form', () => {
       resetForm()
     }
 
+    function changeFix(noteId) {
+      console.log(noteId)
+    }
+
     watch(notes, () => {
       const loadNotes = JSON.stringify(notes.value)
       localStorage.setItem('allNotes', loadNotes)
@@ -53,7 +60,8 @@ export const useFormStore = defineStore('form', () => {
         newDesc,
         fixed,
         createNote,
-        resetForm
+        resetForm,
+        changeFix
     }
     // Daí tu chama esse arquivo numa variavel store, e usa store.estadReativo ou store.method()
     // Basico e funcional hehe

@@ -1,25 +1,34 @@
 <template>
   <section :class="$attrs.class">
-    <div class="bg-gray-200"> <!-- HEADER -->
+
+    <div class="flex justify-between font-bold text-lg capitalize border-b border-[#00000020]"> <!-- HEADER -->
       <h1>{{ noteTitle}}</h1>
-      <input type="checkbox" :class="fixInputStyles" class="a">
+      <input type="checkbox"
+            :class="fixInputStyles"
+            @click="store.changeFix(noteID)"
+            >
     </div>
-    <div> <!-- MAIN -->
+
+    <div class="border-b border-[#00000020] py-1"> <!-- MAIN -->
       <p>{{ noteDesc }}</p>
     </div>
 
-    <!--
-    <div> FOOTER </div>
-    -->
+    <div class="flex w-full pt-2 justify-end"> <!--FOOTER-->
+      <button class="cursor-pointer">
+        <img src="../assets/trash.svg" alt="Trash Icon" class="hover:scale-120">
+      </button>
+    </div>
   </section>
 
 </template>
 
 
 <script setup>
-
 // imports
-/* import { useFormStore } from '@/stores/useFormStore'; */
+import { useFormStore } from '@/stores/useFormStore';
+
+// variables
+const store = useFormStore()
 
 const props = defineProps({
   noteID: Number,
@@ -27,14 +36,12 @@ const props = defineProps({
   noteDesc: String,
   noteFixed: Boolean,
 })
-// variables
-/*   const store = useFormStore */
 
-  const fixInputStyles = [
+const fixInputStyles = [
     "appearance-none",
     "w-6 h-6 bg-cover",
-    props.noteFixed ? "bg-[url(https://img.icons8.com/ios-filled/50/pin--v1.png)]"
-                    : "bg-[url(https://img.icons8.com/ios/50/pin--v1.png)]",
+    props.noteFixed ? "bg-[url(../assets/fillPin.svg)]"
+                    : "bg-[url(../assets/fixPin.svg)]",
 
   ]
 
