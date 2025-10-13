@@ -7,6 +7,7 @@
     :noteTitle="note.title"
     :noteDesc="note.description"
     :noteFixed="note.fixed"
+    class="bg-gray-200"
   />
 
 </template>
@@ -17,6 +18,6 @@
 import { useFormStore } from "@/stores/useFormStore";
 import NoteCard from "./NoteCard.vue"
 
-const store = useFormStore
+const store = useFormStore()
 
 </script>
