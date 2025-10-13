@@ -5,6 +5,7 @@
       <input
       type="text"
       placeholder="Titulo"
+      v-model="store.newTitle"
       class="placeholder:font-bold w-full focus-visible:outline-none text-xl"
       >
       <button @click="fixedSelect = !fixedSelect" class="cursor-pointer">
@@ -15,7 +16,8 @@
 
     <input
       type="text" 
-      :placeholder="['Criar uma ' + createA]"
+      placeholder="Criar uma nota..."
+      v-model="store.newDesc"
       class="px-4 py-2 w-full focus-visible:outline-none placeholder:font-semibold"
       @click="emit('update:focused', true)"
       />
@@ -28,8 +30,11 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue';
+import { ref, watch } from 'vue';
+import { useFormStore } from '../stores/useFormStore';
 
+
+const store = useFormStore()
 const props = defineProps({
   focused: { 
     type: Boolean, 
@@ -42,7 +47,10 @@ const emit = defineEmits([
 ])
 
 const fixedSelect = ref(false);
-const createA = ref('nota...');
 
+watch(fixedSelect, (newVal) => {
+  console.log('Novo valor de fixedSelect:', newVal);
+  store.fixed = newVal;
+});
 </script>
 
