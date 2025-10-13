@@ -7,11 +7,12 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "dev": "vite",
+    "start": "vite", 
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
-    "tailwind": "npx @tailwindcss/cli -i ./src/assets/input.css -o ./src/assets/output.css --watch"
+    "tailwind": "npx @tailwindcss/cli -i ./src/assets/input.css -o ./src/assets/output.css --watch",
+    "dev": "concurrently --names \"NODeVITE,TAILWIND\" --prefix \"name\" \"yarn start\" \"yarn tailwind\""
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.14",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@vitejs/plugin-vue": "^6.0.1",
+    "concurrently": "^9.2.1",
     "eslint": "^9.33.0",
     "eslint-plugin-vue": "~10.4.0",
     "globals": "^16.3.0",
