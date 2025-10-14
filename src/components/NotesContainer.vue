@@ -1,7 +1,7 @@
 
 <template>
 
-  <div class="w-full px-10 flex justify-between flex-wrap gap-5">
+  <div class="w-full max-w-284 px-10 flex justify-start flex-wrap gap-8">
     <NoteCard
       v-for="note in store.notes"
       :key="note.id"

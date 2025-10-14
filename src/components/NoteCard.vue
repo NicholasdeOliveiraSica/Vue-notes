@@ -1,19 +1,19 @@
 <template>
-  <section :class="$attrs.class">
+  <section :class="['flex flex-col justify-between',$attrs.class]">
 
-    <div class="flex justify-between font-bold text-lg capitalize border-b border-[#00000020]"> <!-- HEADER -->
+    <div v-if="noteTitle" class="flex justify-between font-bold text-lg capitalize"> <!-- HEADER -->
       <h1>{{ noteTitle}}</h1>
       <input type="checkbox"
             :class="fixInputStyles"
             @click="store.changeFix(noteID)"
             >
     </div>
-    <div class="border-b border-[#00000020] py-1"> <!-- MAIN -->
+    <div> <!-- MAIN -->
       <p>{{ noteDesc }}</p>
     </div>
 
     <div class="flex w-full pt-2 justify-end"> <!--FOOTER-->
-      <button class="cursor-pointer">
+      <button class="cursor-pointer" @click="store.deleteNote(noteID)">
         <img src="../assets/trash.svg" alt="Trash Icon" class="hover:scale-120">
       </button>
     </div>
