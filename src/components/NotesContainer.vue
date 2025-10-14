@@ -12,7 +12,6 @@
       class="bg-white min-w-60 p-3 rounded-xl shadow-lg border border-[#00000077]"
     />
   </div>
-
 </template>
 
 

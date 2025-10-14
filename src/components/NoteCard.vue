@@ -8,7 +8,6 @@
             @click="store.changeFix(noteID)"
             >
     </div>
-
     <div class="border-b border-[#00000020] py-1"> <!-- MAIN -->
       <p>{{ noteDesc }}</p>
     </div>
@@ -25,6 +24,7 @@
 
 <script setup>
 // imports
+import { computed } from 'vue';
 import { useFormStore } from '@/stores/useFormStore';
 
 // variables
@@ -37,12 +37,11 @@ const props = defineProps({
   noteFixed: Boolean,
 })
 
-const fixInputStyles = [
-    "appearance-none",
-    "w-6 h-6 bg-cover",
-    props.noteFixed ? "bg-[url(../assets/fillPin.svg)]"
-                    : "bg-[url(../assets/fixPin.svg)]",
 
-  ]
-
+const fixInputStyles = computed(() => [
+  "appearance-none hover:scale-120",
+  "w-6 h-6 bg-cover cursor-pointer",
+  props.noteFixed ? "bg-[url(../assets/fillPin.svg)]"
+                  : "bg-[url(../assets/fixPin.svg)]",
+])
 </script>

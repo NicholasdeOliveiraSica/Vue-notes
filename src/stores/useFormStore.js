@@ -42,7 +42,11 @@ export const useFormStore = defineStore('form', () => {
     }
 
     function changeFix(noteId) {
-      console.log(noteId)
+      console.log("aplicar alteração na nota de id: ", noteId)
+
+      const thisNote = notes.value.find(note => note.id == noteId)
+
+      if(thisNote) thisNote.fixed = !thisNote.fixed
     }
 
     watch(notes, () => {
