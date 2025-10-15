@@ -216,6 +216,9 @@
   .resize {
     resize: both;
   }
+  .resize-none {
+    resize: none;
+  }
   .appearance-none {
     appearance: none;
   }
@@ -240,11 +243,11 @@
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
-  }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
+  }
+  .overflow-hidden {
+    overflow: hidden;
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
@@ -311,9 +314,6 @@
   }
   .text-neutral-400 {
     color: var(--color-neutral-400);
-  }
-  .capitalize {
-    text-transform: capitalize;
   }
   .underline {
     text-decoration-line: underline;

@@ -47,8 +47,16 @@ export const useFormStore = defineStore('form', () => {
     }
 
     function deleteNote(noteId) {
-      const newNote = notes.value.filter(note => note.id !== noteId)
-      if(newNote) notes.value = newNote
+      const newNotes = notes.value.filter(note => note.id !== noteId)
+      if(newNotes) notes.value = newNotes
+    }
+
+    function updateNote(id, title, desc) {
+      const thisNote = notes.value.find(note => note.id === id)
+      if(thisNote) {
+        thisNote.title = title
+        thisNote.description = desc
+      }
     }
 
     watch(notes, () => {
@@ -69,6 +77,7 @@ export const useFormStore = defineStore('form', () => {
         resetForm,
         changeFix,
         deleteNote,
+        updateNote
     }
     // Daí tu chama esse arquivo numa variavel store, e usa store.estadReativo ou store.method()
     // Basico e funcional hehe
