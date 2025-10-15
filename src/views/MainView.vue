@@ -7,12 +7,9 @@
     <NewNoteInput
       @click.stop
       v-model:focused="focused"
-      />
+    />
 
-      <NotesContainer />
-
-      <pre>{{ focused }}</pre>
-      <pre>{{ store.notes }}</pre>
+    <NotesContainer />
   </div>
 
 </template>
