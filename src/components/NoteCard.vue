@@ -3,7 +3,7 @@
 
     <div v-if="noteTitle" class="flex justify-between font-bold text-lg">  <!-- HEADER -->
       <h1 v-if="!isEditing" >{{ noteTitle}}</h1>
-      <input v-if="isEditing" v-model="editTitle" type="text" class="max-w-40">
+      <input v-if="isEditing" v-model="editTitle" type="text" class="focus-visible:outline-none font-bold text-lg">
 
       <input type="checkbox"
             :class="fixInputStyles"
@@ -12,7 +12,12 @@
     </div>
     <div> <!-- MAIN -->
       <p v-if="!isEditing" >{{ noteDesc }}</p>
-      <textarea @input="autoResize" v-if="isEditing" type="text" v-model="editDesc" rows="1" class="resize-none w-full focus-visible:outline-none overflow-hidden"> </textarea>
+      <textarea
+        v-if="isEditing"
+        v-model="editDesc"
+        rows="1"
+        class="max-w-full resize-none focus-visible:outline-none overflow-hidden">
+      </textarea>
     </div>
 
     <div class="flex w-full pt-2 justify-end gap-2"> <!--FOOTER-->
@@ -69,7 +74,6 @@ const props = defineProps({
   noteDesc: String,
   noteFixed: Boolean,
 })
-
 
 const fixInputStyles = computed(() => [
   "appearance-none hover:scale-120",

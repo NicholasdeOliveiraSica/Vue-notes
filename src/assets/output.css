@@ -204,6 +204,9 @@
   .max-w-284 {
     max-width: calc(var(--spacing) * 284);
   }
+  .max-w-full {
+    max-width: 100%;
+  }
   .min-w-60 {
     min-width: calc(var(--spacing) * 60);
   }
